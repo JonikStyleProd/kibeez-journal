@@ -80,6 +80,38 @@ npm run build
 
 ---
 
+## 🌐 Production Deployment on Vercel
+
+This project is pre-configured for instant one-click deployment to **Vercel** with full client-side SPA routing and edge asset caching via `vercel.json`.
+
+### Recommended Vercel Settings
+
+| Setting | Value |
+| :--- | :--- |
+| **Framework Preset** | `Vite` |
+| **Build Command** | `npm run build` |
+| **Output Directory** | `dist` |
+| **Install Command** | `npm install` |
+| **Node.js Version** | `18.x` or `20.x` |
+| **Environment Variables** | *None required* (zero-config static deployment) |
+
+### Deploying via Vercel CLI
+```bash
+# Deploy to preview
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+### Deploying via Git / Vercel Dashboard
+1. Push your repository to GitHub, GitLab, or Bitbucket.
+2. Import the project in the [Vercel Dashboard](https://vercel.com/new).
+3. Vercel will automatically detect the **Vite** preset and use the `vercel.json` configuration.
+4. Click **Deploy**.
+
+---
+
 ## 📂 Project Structure
 
 ```
