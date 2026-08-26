@@ -47,7 +47,7 @@ const DEFAULT_COMMENTS: Record<string, ArticleComment[]> = {
     {
       id: 'c1',
       authorName: 'Julian Sterling',
-      authorAvatar: '/images/avatar10.jpg',
+      authorAvatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&h=200&q=80',
       timestamp: '2 hours ago',
       content: 'This breakdown of Zone 14 overloads is masterclass journalism. You can clearly see how City and Arsenal engineer that 3-meter window for the cutback.',
       likes: 18,
@@ -56,7 +56,7 @@ const DEFAULT_COMMENTS: Record<string, ArticleComment[]> = {
     {
       id: 'c2',
       authorName: 'Marco Bellini',
-      authorAvatar: '/images/avatar12.jpg',
+      authorAvatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&h=200&q=80',
       timestamp: '5 hours ago',
       content: 'Fascinating point about decel-acceleration. Elite fullbacks simply cannot turn their hips quickly enough when the winger halts momentum.',
       likes: 9,
@@ -67,7 +67,7 @@ const DEFAULT_COMMENTS: Record<string, ArticleComment[]> = {
     {
       id: 'c3',
       authorName: 'Dominic Hayes',
-      authorAvatar: '/images/avatar14.jpg',
+      authorAvatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&h=200&q=80',
       timestamp: '1 day ago',
       content: 'The amortization breakdown explains why clubs prefer 6-year commitments with tiered release levers. Great piece Alex.',
       likes: 12,
@@ -236,7 +236,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const newComment: ArticleComment = {
       id: `c_${Date.now()}`,
       authorName: authorName.trim() || 'Football Enthusiast',
-      authorAvatar: '/images/avatar1.jpg',
+      authorAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80',
       timestamp: 'Just now',
       content: content.trim(),
       likes: 1,

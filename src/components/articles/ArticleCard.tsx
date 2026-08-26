@@ -51,6 +51,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
               src={article.coverImage}
               alt={article.title}
               fallbackType="article"
+              articleId={article.id}
               className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-black/20 lg:to-black/80" />
@@ -152,6 +153,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
             src={article.coverImage}
             alt={article.title}
             fallbackType="article"
+            articleId={article.id}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute top-2.5 left-2.5">
@@ -219,6 +221,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
           src={article.coverImage}
           alt={article.title}
           fallbackType="article"
+          articleId={article.id}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

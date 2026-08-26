@@ -274,6 +274,7 @@ export const ArticleDetailPage: React.FC = () => {
             src={article.coverImage}
             alt={article.title}
             fallbackType="article"
+            articleId={article.id}
             className="w-full max-h-[500px] object-cover"
           />
           {article.coverCaption && (

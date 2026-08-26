@@ -7,6 +7,7 @@ export const AVATAR_FALLBACK_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://w
 
 interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackType?: 'article' | 'avatar';
+  articleId?: string;
 }
 
 export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
@@ -14,6 +15,7 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   alt = 'Kibeez media asset',
   className = '',
   fallbackType = 'article',
+  articleId,
   onError,
   loading = 'lazy',
   ...rest
@@ -29,6 +31,11 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   const fallback = fallbackType === 'avatar' ? AVATAR_FALLBACK_SVG : ARTICLE_FALLBACK_SVG;
 
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    // Diagnostic log for development & production tracing
+    console.warn(
+      `[Kibeez Media Diagnostic] Image failed to load for [${articleId || alt}]. Attempted URL: "${src}". Falling back to vector asset.`
+    );
+    
     // Prevent infinite loop if fallback fails
     e.currentTarget.onerror = null;
     setHasError(true);
@@ -45,6 +52,7 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       className={className}
       loading={loading}
       decoding="async"
+      referrerPolicy="no-referrer"
       onError={handleError}
       {...rest}
     />
