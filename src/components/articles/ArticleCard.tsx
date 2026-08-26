@@ -2,6 +2,7 @@ import React from 'react';
 import { Clock, Bookmark, Heart, ArrowUpRight, MessageSquare, CheckCircle2, Volume2 } from 'lucide-react';
 import { Article } from '../../types';
 import { useApp } from '../../context/AppContext';
+import { ImageWithFallback } from '../common/ImageWithFallback';
 
 interface ArticleCardProps {
   article: Article;
@@ -46,9 +47,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
       >
         <div className="grid grid-cols-1 lg:grid-cols-12">
           <div className="relative lg:col-span-7 h-72 sm:h-96 lg:h-full min-h-[320px] overflow-hidden">
-            <img
+            <ImageWithFallback
               src={article.coverImage}
               alt={article.title}
+              fallbackType="article"
               className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-black/20 lg:to-black/80" />
@@ -102,9 +104,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
                 onClick={handleAuthorClick}
                 className="flex items-center gap-3 group/author"
               >
-                <img
+                <ImageWithFallback
                   src={article.authorAvatar}
                   alt={article.authorName}
+                  fallbackType="avatar"
                   className="h-10 w-10 rounded-full object-cover border border-[var(--border-strong)]"
                 />
                 <div>
@@ -145,9 +148,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
         className="group relative flex flex-col sm:flex-row cursor-pointer gap-5 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 transition-all duration-300 hover:border-blue-500/40 hover:bg-[var(--bg-elevated)] shadow-md"
       >
         <div className="relative h-44 sm:h-36 sm:w-52 shrink-0 overflow-hidden rounded-xl">
-          <img
+          <ImageWithFallback
             src={article.coverImage}
             alt={article.title}
+            fallbackType="article"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute top-2.5 left-2.5">
@@ -211,9 +215,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
       className="group flex flex-col cursor-pointer overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] shadow-lg shadow-[var(--shadow-color)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-xl"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
-        <img
+        <ImageWithFallback
           src={article.coverImage}
           alt={article.title}
+          fallbackType="article"
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -285,9 +290,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
             onClick={handleAuthorClick}
             className="flex items-center gap-2.5 group/author"
           >
-            <img
+            <ImageWithFallback
               src={article.authorAvatar}
               alt={article.authorName}
+              fallbackType="avatar"
               className="h-7 w-7 rounded-full object-cover border border-[var(--border-strong)]"
             />
             <span className="text-xs font-semibold text-[var(--text-secondary)] group-hover/author:text-blue-500 transition-colors">
@@ -316,3 +322,4 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, variant = 'gr
     </article>
   );
 };
+

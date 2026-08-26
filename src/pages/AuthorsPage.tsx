@@ -5,6 +5,7 @@ import { AUTHORS, getAuthorById } from '../data/authors';
 import { getArticlesByAuthor } from '../data/articles';
 import { Author, Article } from '../types';
 import { ArticleCard } from '../components/articles/ArticleCard';
+import { ImageWithFallback } from '../components/common/ImageWithFallback';
 
 export const AuthorsPage: React.FC = () => {
   const { pageParam, navigateTo } = useApp();
@@ -26,9 +27,10 @@ export const AuthorsPage: React.FC = () => {
         {/* Author Spotlight Profile */}
         <div className="rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-8 sm:p-12 shadow-xl shadow-[var(--shadow-color)]">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <img
+            <ImageWithFallback
               src={selectedAuthor.avatar}
               alt={selectedAuthor.name}
+              fallbackType="avatar"
               className="h-28 w-28 rounded-3xl object-cover border-4 border-[var(--border-strong)] shadow-lg"
             />
             <div className="space-y-2">
@@ -99,9 +101,10 @@ export const AuthorsPage: React.FC = () => {
           >
             <div>
               <div className="flex items-center gap-4">
-                <img
+                <ImageWithFallback
                   src={author.avatar}
                   alt={author.name}
+                  fallbackType="avatar"
                   className="h-16 w-16 rounded-2xl object-cover border-2 border-[var(--border-strong)] group-hover:scale-105 transition-transform"
                 />
                 <div>

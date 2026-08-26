@@ -17,6 +17,7 @@ import {
 import { useApp } from '../../context/AppContext';
 import { ARTICLES } from '../../data/articles';
 import { CATEGORIES } from '../../data/categories';
+import { ImageWithFallback } from './ImageWithFallback';
 
 export const SearchModal: React.FC = () => {
   const { 
@@ -171,9 +172,10 @@ export const SearchModal: React.FC = () => {
                     className="group flex cursor-pointer items-center justify-between rounded-xl p-3 hover:bg-[var(--bg-subtle-hover)] transition-all"
                   >
                     <div className="flex items-center gap-3">
-                      <img
+                      <ImageWithFallback
                         src={art.coverImage}
                         alt={art.title}
+                        fallbackType="article"
                         className="h-12 w-14 rounded-xl object-cover border border-[var(--border-subtle)]"
                       />
                       <div>

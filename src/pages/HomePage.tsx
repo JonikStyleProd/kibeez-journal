@@ -16,6 +16,7 @@ import { AUTHORS } from '../data/authors';
 import { Article, Category, Author } from '../types';
 import { HeroTacticalPitch3D } from '../components/hero/HeroTacticalPitch3D';
 import { ArticleCard } from '../components/articles/ArticleCard';
+import { ImageWithFallback } from '../components/common/ImageWithFallback';
 
 export const HomePage: React.FC = () => {
   const { navigateTo } = useApp();
@@ -269,9 +270,10 @@ export const HomePage: React.FC = () => {
                 onClick={() => navigateTo('author-detail', author.id)}
                 className="group flex cursor-pointer items-start gap-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)] p-5 hover:border-blue-500/40 transition-all shadow-sm"
               >
-                <img
+                <ImageWithFallback
                   src={author.avatar}
                   alt={author.name}
+                  fallbackType="avatar"
                   className="h-14 w-14 rounded-2xl object-cover border-2 border-[var(--border-strong)] group-hover:scale-105 transition-transform"
                 />
                 <div>

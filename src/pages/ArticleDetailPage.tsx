@@ -23,6 +23,7 @@ import { AudioReaderPlayer } from '../components/articles/AudioReaderPlayer';
 import { ArticleComments } from '../components/articles/ArticleComments';
 import { ArticleCard } from '../components/articles/ArticleCard';
 import { TacticalLensModal } from '../components/articles/TacticalLensModal';
+import { ImageWithFallback } from '../components/common/ImageWithFallback';
 
 export const ArticleDetailPage: React.FC = () => {
   const { 
@@ -176,9 +177,10 @@ export const ArticleDetailPage: React.FC = () => {
               onClick={() => navigateTo('author-detail', article.authorId)}
               className="flex items-center gap-3 cursor-pointer group"
             >
-              <img
+              <ImageWithFallback
                 src={article.authorAvatar}
                 alt={article.authorName}
+                fallbackType="avatar"
                 className="h-12 w-12 rounded-full object-cover border-2 border-[var(--border-strong)] group-hover:scale-105 transition-transform"
               />
               <div>
@@ -268,9 +270,10 @@ export const ArticleDetailPage: React.FC = () => {
 
         {/* Hero Cover Image with Caption */}
         <div className="mt-8 overflow-hidden rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] shadow-2xl shadow-[var(--shadow-color)]">
-          <img
+          <ImageWithFallback
             src={article.coverImage}
             alt={article.title}
+            fallbackType="article"
             className="w-full max-h-[500px] object-cover"
           />
           {article.coverCaption && (
@@ -419,9 +422,10 @@ export const ArticleDetailPage: React.FC = () => {
         {/* Author Bio Box */}
         <div className="mt-12 rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8 shadow-sm">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <img
+            <ImageWithFallback
               src={article.authorAvatar}
               alt={article.authorName}
+              fallbackType="avatar"
               className="h-16 w-16 rounded-2xl object-cover border-2 border-[var(--border-strong)] shrink-0"
             />
             <div className="flex-1">

@@ -2,6 +2,7 @@ import React from 'react';
 import { X, Bookmark, Trash2, ArrowRight, BookOpen, Clock, CheckCircle2, Volume2 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { ARTICLES } from '../../data/articles';
+import { ImageWithFallback } from './ImageWithFallback';
 
 export const ReadingListDrawer: React.FC = () => {
   const { 
@@ -56,9 +57,10 @@ export const ReadingListDrawer: React.FC = () => {
                     className="group relative rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-subtle)] p-3.5 hover:border-blue-500/30 hover:bg-[var(--bg-subtle-hover)] transition-all"
                   >
                     <div className="flex gap-3">
-                      <img
+                      <ImageWithFallback
                         src={art.coverImage}
                         alt={art.title}
+                        fallbackType="article"
                         className="h-16 w-16 rounded-lg object-cover border border-[var(--border-subtle)] shrink-0 cursor-pointer"
                         onClick={() => handleOpenArticle(art.slug)}
                       />

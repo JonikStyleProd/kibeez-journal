@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MessageSquare, ThumbsUp, Send, Shield } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { ImageWithFallback } from '../common/ImageWithFallback';
 
 interface ArticleCommentsProps {
   articleId: string;
@@ -79,9 +80,10 @@ export const ArticleComments: React.FC<ArticleCommentsProps> = ({ articleId }) =
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <img
+                  <ImageWithFallback
                     src={comment.authorAvatar}
                     alt={comment.authorName}
+                    fallbackType="avatar"
                     className="h-8 w-8 rounded-full object-cover border border-[var(--border-subtle)]"
                   />
                   <div>
